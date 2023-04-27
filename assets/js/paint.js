@@ -1,11 +1,10 @@
 function configureListeners() {
-    var images = document.getElementsByTagName('img') 
-
+    var images = document.getElementsByTagName('img');
 
      for (var i = 0; i < images.length; i++) {   
-        document.getElementById(images[i].id).addeventlistener('mouseover', oddOpacity, false)     
-        document.getElementById(images[i].id).addeventlistener('mouseout', removeOpacity, false) 
-        element.style.color = newColor;      
+        document.getElementById(images[i].id).addEventListener('mouseover', addOpacity, false)    
+        console.log(images[i])
+        document.getElementById(images[i].id).addEventListener('mouseout', removeOpacity, false)   
     } 
 }
 
@@ -17,8 +16,8 @@ function addOpacity(event) {
 }
 
 function removeOpacity(event) {
-    if(!this.classList.contains('dim')) {
-        this.classList.remove('dim')
+    if(this.classList.contains('dim')) {
+       this.classList.remove('dim')
     }
 
     let element = document.getElementById('color-price');
@@ -41,42 +40,42 @@ function getProductInfo(paintColor) {
         updatePrice(colorName, price)    
             break;           
         case 'pn2':
-            Price: '$11.14'
+            price = '$11.14'
             colorName = 'Medium Brown'
         updatePrice(colorName, price)
             break;            
         case 'pn3':
-            Price: '$22.99'
+            price =  '$22.99'
             colorName = 'Royal Blue'
         updatePrice(colorName, price)
             break;   
         case 'pn4':
-            Price: '$4.99'
+            price =  '$4.99'
             colorName = 'Solid Red'
         updatePrice(colorName, price)
             break;   
         case 'pn5':
-            Price: '$8.22'       
+            price = '$8.22'       
             colorName = 'Solid White'
         updatePrice(colorName, price)
             break;   
         case 'pn6':
-            Price: '$11.99'       
+            price =  '$11.99'       
             colorName = 'Solid Black'
         updatePrice(colorName, price)
             break;   
         case 'pn7':
-            Price: '$13.42'
+            price = '$13.42'
             colorName = 'Solid Cyan'
         updatePrice(colorName, price)
             break;   
         case 'pn8':
-            Price: '$21.98'  
+            price = '$21.98'  
             colorName = 'Solid Purple'
         updatePrice(colorName, price)
             break;   
         case 'pn9':
-            Price: '$14.99'
+            price =  '$14.99'
             colorName = 'Solid Yellow'
         updatePrice(colorName, price)
             break;   
@@ -85,7 +84,7 @@ function getProductInfo(paintColor) {
 
     function updatePrice(colorName, price)
     {       
-        let colorPrice = document.getElementsId('color-price');
+        let colorPrice = document.getElementById('color-price');
         colorPrice.textContent = price;
         let color = document.getElementById('color-name')
         color.textContent = colorName;
